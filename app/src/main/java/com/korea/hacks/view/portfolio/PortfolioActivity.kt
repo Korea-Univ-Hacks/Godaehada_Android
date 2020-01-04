@@ -1,6 +1,5 @@
 package com.korea.hacks.view.portfolio
 
-import android.content.Intent
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.lifecycle.Observer
 import androidx.viewpager.widget.ViewPager
@@ -8,16 +7,25 @@ import com.korea.hacks.R
 import com.korea.hacks.base.BaseActivity
 import com.korea.hacks.databinding.ActivityPortfolioBinding
 import com.korea.hacks.util.BasicUtil
-import com.korea.hacks.view.contact.ContactActivity
 import com.korea.hacks.view.portfolio.adpater.PortfolioPagerAdapter
 import com.korea.hacks.view.portfolio.data.PortfolioRepositoryImpl
-import com.korea.hacks.view.portfolio.entity.PortfolioItem
 import com.korea.hacks.view.portfolio.entity.ViewType
 
 
 class PortfolioActivity: BaseActivity<ActivityPortfolioBinding>() {
+
     override val layoutRes = R.layout.activity_portfolio
     private val portfolioViewModel = PortfolioViewModel(PortfolioRepositoryImpl())
+
+    /** 1. 메인화면에서 구매자가 판매자의 포트폴리오에 접근하는 경우
+     *  - 수정 불가, 카메라 진입 불가, 문의하기 진입 가능
+     *  2. 마이페이지에서 판매자가 마이페이지로 접근하는 경우
+     *  - 수정 가능, 카메라 진입 가능, 문의하기 진입 불가
+     */
+    companion object {
+        const val EXTRA_IS_BUYER = "EXTRA_IS_BUYER"
+    }
+    private var isBuyer = true
 
     override fun onDataBinding() {
         binding.vm = portfolioViewModel
@@ -25,9 +33,14 @@ class PortfolioActivity: BaseActivity<ActivityPortfolioBinding>() {
     }
 
     override fun setupView() {
+        getData()
         initPortfolioPagerAdapter()
         observePortfolioViewModel()
         initView()
+    }
+
+    private fun getData() {
+        isBuyer = intent.getBooleanExtra(EXTRA_IS_BUYER, true)
     }
 
     private fun initPortfolioPagerAdapter() {
@@ -35,7 +48,7 @@ class PortfolioActivity: BaseActivity<ActivityPortfolioBinding>() {
         val adapter = PortfolioPagerAdapter(
             supportFragmentManager,
             FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,
-            portfolioViewModel
+            isBuyer
         )
         val margin = BasicUtil.getMargin(50)
         with(binding) {
@@ -69,19 +82,10 @@ class PortfolioActivity: BaseActivity<ActivityPortfolioBinding>() {
             portfolioList.observe(owner, Observer {
                 (binding.viewPager.adapter as PortfolioPagerAdapter).addAll(it)
             })
-            portfolioClickEvent.observe(owner, Observer {
-                goToContactActivity(it)
-            })
         }
     }
 
     private fun initView() {
         portfolioViewModel.requestPortfolioList()
-    }
-
-    private fun goToContactActivity(item: PortfolioItem) {
-        val intent = Intent(applicationContext, ContactActivity::class.java)
-        intent.putExtra(PortfolioFragment.EXTRA_IMAGE_URL, item.imageUrl)
-        startActivity(intent)
     }
 }

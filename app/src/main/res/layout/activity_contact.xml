@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:scaleType="fitXY"
-            app:set_image_url="@{item.imageUrl}"
+            app:set_contact_url="@{item.imageUrl}"
             app:layout_constraintBottom_toTopOf="@+id/btn_contact"
             app:layout_constraintTop_toBottomOf="@+id/iv_close" />
 
