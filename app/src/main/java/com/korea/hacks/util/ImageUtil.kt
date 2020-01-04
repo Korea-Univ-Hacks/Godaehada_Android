@@ -28,10 +28,17 @@ class ImageUtil {
                 .into(view)
         }
 
+        fun setImageUri(@NotNull view: ImageView, uri: Uri?) {
+            if (uri != null) {
+                Glide.with(view.context)
+                    .load(uri)
+                    .skipMemoryCache(false)
+                    .into(view)
+            }
+        }
+
         fun setImageUrl(@NotNull view: ImageView, url: String) {
-            if (url.isEmpty()) {
-                Glide.with(view.context).load(Uri.EMPTY).into(view)
-            } else {
+            if (url.isNotEmpty()) {
                 Glide.with(view.context)
                     .load(url)
                     .skipMemoryCache(false)

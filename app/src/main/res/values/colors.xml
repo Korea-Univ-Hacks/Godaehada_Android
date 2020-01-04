@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#AAA9A9</color>
     <color name="colorAccent">#444343</color>
+
 <color name="on">#de000000</color>
     <color name="off">#8a000000</color>
     <color name="bgOn">#959596</color>
     <color name="bgOff">#FFFFFF</color>
+
+    <color name="colorMain">#ad8dfd</color>
+
+    <!-- activity_portfolio -->
+    <color name="colorPortfolioBackground">#f3f3f3</color>
+    <color name="colorPortfolioIndicator">#c2c2c2</color>
+    <color name="colorPortfolioTab">#8a000000</color>
+    <color name="colorTabSelected">#de000000</color>
+    <color name="colorTab">#8a000000</color>
+
+    <!-- activity_contact -->
+    <color name="colorContactBackground">#1f1f1f</color>
+    <color name="colorContactBtnBackground">#16f9f9f9</color>
+    <color name="colorContactBtnText">#c7a19f9f</color>
+
 </resources>
