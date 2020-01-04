@@ -8,7 +8,8 @@ import com.korea.hacks.view.portfolio.entity.PortfolioItem
 
 class PortfolioPagerAdapter(
     @NonNull fm: FragmentManager,
-    behavior: Int
+    behavior: Int,
+    private val isBuyer: Boolean
 ): FragmentPagerAdapter(fm, behavior) {
 
     private val itemList = mutableListOf<PortfolioItem>()
@@ -21,5 +22,7 @@ class PortfolioPagerAdapter(
     override fun getCount() = itemList.size
 
     override fun getItem(position: Int) =
-        PortfolioFragment(itemList[position])
+        PortfolioFragment(itemList[position], isBuyer)
+
+    override fun getPageTitle(position: Int) = itemList[position].tag
 }
