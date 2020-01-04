@@ -95,7 +95,7 @@
             android:id="@+id/content_viewpager"
             android:layout_width="match_parent"
             android:layout_height="183dp"
-            android:src="@drawable/ad1"
+            android:src="@drawable/card_2"
             app:layout_constraintTop_toBottomOf="@+id/category_view">
         </ImageView>
 
