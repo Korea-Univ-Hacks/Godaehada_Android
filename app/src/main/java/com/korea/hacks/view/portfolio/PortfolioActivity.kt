@@ -25,7 +25,7 @@ class PortfolioActivity: BaseActivity<ActivityPortfolioBinding>() {
     companion object {
         const val EXTRA_IS_BUYER = "EXTRA_IS_BUYER"
     }
-    private var isBuyer = true
+    private var isBuyer = false
 
     override fun onDataBinding() {
         binding.vm = portfolioViewModel

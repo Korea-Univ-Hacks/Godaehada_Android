@@ -2,8 +2,10 @@ package com.korea.hacks.view.portfolio
 
 import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.util.Log
 import androidx.lifecycle.Observer
 import com.korea.hacks.R
 import com.korea.hacks.base.BaseFragment
@@ -25,6 +27,8 @@ class PortfolioFragment(
 
     override val layoutRes = R.layout.fragment_portfolio
     private val viewModel = PortfolioViewModel(PortfolioRepositoryImpl())
+
+    private lateinit var activity: Activity
 
     override fun onDataBinding() {
         binding.vm = viewModel
@@ -91,11 +95,21 @@ class PortfolioFragment(
                     Activity.RESULT_OK -> {
                         val uri = intent?.data
                         item.imageUri = uri
-                        item.isSet = true
                         binding.item = item
+//                        showCategoryDialog()
                     }
                 }
             }
         }
+    }
+
+    private fun showCategoryDialog() {
+        val dialog = CategoryDialog(activity)
+        dialog.show()
+        dialog.categoryLiveData.observe(this, Observer {
+            item.tag = it.tag
+            item.isSet = true
+            binding.item = item
+        })
     }
 }

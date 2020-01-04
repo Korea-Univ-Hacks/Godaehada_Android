@@ -4,7 +4,6 @@ import androidx.annotation.NonNull
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.korea.hacks.view.portfolio.PortfolioFragment
-import com.korea.hacks.view.portfolio.PortfolioViewModel
 import com.korea.hacks.view.portfolio.entity.PortfolioItem
 
 class PortfolioPagerAdapter(

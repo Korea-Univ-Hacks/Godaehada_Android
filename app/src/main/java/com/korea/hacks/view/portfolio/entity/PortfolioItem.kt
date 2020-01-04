@@ -4,7 +4,7 @@ import android.net.Uri
 
 class PortfolioItem(
     val id: Int,
-    val tag: String,
+    var tag: String,
     val imageUrl: String,
     var isSet: Boolean
 ) {
