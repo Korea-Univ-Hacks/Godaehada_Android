@@ -20,10 +20,10 @@
             android:src="@drawable/menu" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="76dp"
+            android:layout_height="31dp"
             android:layout_gravity="center"
-            android:src="@drawable/menu" />
+            android:src="@drawable/group" />
 
     </androidx.appcompat.widget.Toolbar>
 
