@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/name_txt"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="80dp"/>
 
     <TextView
         android:id="@+id/name_txt"

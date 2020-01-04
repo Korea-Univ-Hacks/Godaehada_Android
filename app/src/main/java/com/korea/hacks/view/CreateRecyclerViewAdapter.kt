@@ -8,15 +8,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.korea.hacks.CallEvent
 import com.korea.hacks.R
+import com.korea.hacks.view.main.Test
 import kotlinx.android.synthetic.main.creator_item_view.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
-
-data class Test(
-    var name:String,
-    var tag: MutableList<String>
-)
 
 class CreateRecyclerViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

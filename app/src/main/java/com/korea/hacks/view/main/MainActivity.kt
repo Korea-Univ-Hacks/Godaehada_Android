@@ -12,14 +12,20 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.navigation.NavigationView
 import com.korea.hacks.CallEvent
+import com.korea.hacks.GuideViewPagerAdapter
 import com.korea.hacks.R
 import com.korea.hacks.base.BaseActivity
 import com.korea.hacks.databinding.ActivityMainBinding
 import com.korea.hacks.view.CreateRecyclerViewAdapter
-import com.korea.hacks.view.Test
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.navigation_header.view.*
 import kotlinx.android.synthetic.main.toolbar.view.*
+
+data class Test(
+    var name:String,
+    var tag: MutableList<String>
+)
+
 
 class MainActivity : BaseActivity<ActivityMainBinding>(),
     NavigationView.OnNavigationItemSelectedListener {
@@ -32,6 +38,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
 
     var selectedCategory = "홈"  //카테고리
     private var searchWord = ""   //검색어
+
+    //뷰페이저 어댑터
+    private val guideViewPagerAdapter by lazy { GuideViewPagerAdapter() }
+
 
     //그리드 - 리사이클러뷰 어댑터
     private val createRecyclerViewAdapter by lazy { CreateRecyclerViewAdapter() }
@@ -67,6 +77,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
             setHasFixedSize(true)
         }
         createRecyclerViewAdapter.setItems(creatorList)
+
+        //뷰페이저에 뷰페이저 어댑터 지정
+        guide_view_pager.adapter = guideViewPagerAdapter
 
         /**
          * 메뉴버튼
