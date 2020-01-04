@@ -1,10 +1,12 @@
 package com.korea.hacks.view.main
 
 import android.content.Context
+import android.content.Intent
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
+import com.korea.hacks.CallEvent
 import com.korea.hacks.R
 import com.korea.hacks.base.BaseActivity
 import com.korea.hacks.databinding.ActivityMainBinding
@@ -13,7 +15,8 @@ import com.korea.hacks.view.Test
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.view.*
 
-class MainActivity : BaseActivity<ActivityMainBinding>() {
+class MainActivity : BaseActivity<ActivityMainBinding>(){
+    //class MainActivity : BaseActivity<ActivityMainBinding>(), CallEvent{
 
     override val layoutRes = R.layout.activity_main
 
@@ -22,7 +25,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     //그리드 - 리사이클러뷰 어댑터
     private val createRecyclerViewAdapter by lazy { CreateRecyclerViewAdapter() }
-
+  //  private val createRecyclerViewAdapter by lazy { CreateRecyclerViewAdapter(this) }
 
     //TODO 검색 결과 리스트 셋팅
     private var creatorList = ArrayList<Test>()
@@ -140,6 +143,16 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 //        }
     }
 
+    /**
+     * 특정 크리에이터 클릭 시, 포트폴리오보기 화면으로 넘어감
+     * TODO **************************************
+     */
+
+    /**
+     * 데일리 다이어리 리스트에서 특정 다이어리를 클릭하면 상세보기 화면으로 이동
+     */
+
+
     private fun buttonInit() {
         binding.txt1.isSelected = false
         binding.txt2.isSelected = false
@@ -155,6 +168,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
         }
     }
+
+//    override fun onClickImage(test: Test) {
+//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//        //        val intent = Intent(this, DetailActivity::class.java)
+////        intent.putExtra("diary", diary)
+////        intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
+////
+////        startActivity(intent)
+//    }
 
 
 }

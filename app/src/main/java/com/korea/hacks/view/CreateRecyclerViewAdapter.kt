@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.korea.hacks.CallEvent
 import com.korea.hacks.R
 import kotlinx.android.synthetic.main.creator_item_view.view.*
 import java.text.SimpleDateFormat
@@ -21,9 +22,13 @@ class CreateRecyclerViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder
 
     private var creatorList = ArrayList<Test>()
 
+//    private lateinit var callEvent: CallEvent
+//
+//    constructor(callEvent: CallEvent):this(){
+//        this.callEvent = callEvent
+//    }
 
     fun setItems(creatorList: ArrayList<Test>) {
-
         this.creatorList = creatorList
         notifyDataSetChanged()
     }
@@ -70,12 +75,11 @@ class CreateRecyclerViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder
                 main_tag_txt.text = TAG
 
                 //TODO 각 아이템 뷰 클릭하면 상세화면 이동
-                /*
                 setOnClickListener {
-                    callEvent.onClickDiary(creator)
+                   // callEvent.onClickImage(creator)
                 }
 
-                 */
+
             }
 
 
