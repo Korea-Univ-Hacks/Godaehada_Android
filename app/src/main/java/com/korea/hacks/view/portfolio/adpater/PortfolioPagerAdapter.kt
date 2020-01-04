@@ -3,7 +3,7 @@ package com.korea.hacks.view.portfolio.adpater
 import androidx.annotation.NonNull
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.korea.hacks.view.portfolio.entity.PortfolioFragment
+import com.korea.hacks.view.portfolio.PortfolioFragment
 import com.korea.hacks.view.portfolio.entity.PortfolioItem
 
 class PortfolioPagerAdapter(
@@ -20,5 +20,6 @@ class PortfolioPagerAdapter(
 
     override fun getCount() = itemList.size
 
-    override fun getItem(position: Int) = PortfolioFragment(itemList[position])
+    override fun getItem(position: Int) =
+        PortfolioFragment(itemList[position])
 }
