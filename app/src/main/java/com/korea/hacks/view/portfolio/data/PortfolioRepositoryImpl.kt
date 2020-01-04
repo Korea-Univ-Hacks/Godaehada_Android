@@ -8,11 +8,14 @@ import io.reactivex.schedulers.Schedulers
 class PortfolioRepositoryImpl: PortfolioRepository {
 
     override fun requestPortfolioList() = Single.fromCallable {
-        val item = PortfolioItem("영화", "범죄도시", "마동석짱", "http://movie.phinf.naver.net/20170915_299/1505458505658vbKcN_JPEG/movie_image.jpg")
+        val item1 = PortfolioItem("BX디자인", "http://movie.phinf.naver.net/20171013_210/1507861351048TMJcR_JPEG/movie_image.jpg")
+        val item2 = PortfolioItem("UX/UI디자인", "http://movie.phinf.naver.net/20171013_210/1507861351048TMJcR_JPEG/movie_image.jpg")
+        val item3 = PortfolioItem("편집디자인", "http://movie.phinf.naver.net/20171013_210/1507861351048TMJcR_JPEG/movie_image.jpg")
+
         val itemList = mutableListOf<PortfolioItem>()
-        for (i in 0..2) {
-            itemList.add(item)
-        }
+        itemList.add(item1)
+        itemList.add(item2)
+        itemList.add(item3)
         itemList
     }.subscribeOn(Schedulers.io())
 }

@@ -22,4 +22,6 @@ class PortfolioPagerAdapter(
 
     override fun getItem(position: Int) =
         PortfolioFragment(itemList[position])
+
+    override fun getPageTitle(position: Int) = itemList[position].tag
 }

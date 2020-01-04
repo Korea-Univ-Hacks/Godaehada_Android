@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Godaehada</string>
+
+    <!-- activity_portfolio -->
+    <string name="portfolio_user">김라희</string>
+    <string name="portfolio_description">활발하게 소통하는 디자이너 김라희입니다.\n끝까지 대화하고 연구하여, 더 좋은 디자인을 전달하기\n위해 노력하는 것을 최우선으로 생각합니다.</string>
 </resources>
