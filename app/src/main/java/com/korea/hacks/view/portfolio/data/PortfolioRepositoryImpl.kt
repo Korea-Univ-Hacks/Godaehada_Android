@@ -9,7 +9,7 @@ class PortfolioRepositoryImpl: PortfolioRepository {
 
     override fun requestPortfolioList() = Single.fromCallable {
         val item1 = PortfolioItem("BX디자인", "http://movie.phinf.naver.net/20171013_210/1507861351048TMJcR_JPEG/movie_image.jpg")
-        val item2 = PortfolioItem("UX/UI디자인", "http://movie.phinf.naver.net/20171013_210/1507861351048TMJcR_JPEG/movie_image.jpg")
+        val item2 = PortfolioItem("UX디자인", "http://movie.phinf.naver.net/20171013_210/1507861351048TMJcR_JPEG/movie_image.jpg")
         val item3 = PortfolioItem("편집디자인", "http://movie.phinf.naver.net/20171013_210/1507861351048TMJcR_JPEG/movie_image.jpg")
 
         val itemList = mutableListOf<PortfolioItem>()

@@ -42,12 +42,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 app:tabGravity="center"
-                app:tabIndicator="@color/colorMain"
+                app:tabIndicatorColor="@color/colorPortfolioIndicator"
+                app:tabIndicatorFullWidth="true"
                 app:tabIndicatorHeight="4dp"
+                app:tabMinWidth="77dp"
                 app:tabMode="fixed"
+                app:tabRippleColor="@null"
                 app:tabSelectedTextColor="@color/colorMain"
-                app:tabTextColor="@color/colorTab"
-                app:tabMinWidth="77dp" />
+                app:tabTextColor="@color/colorTab" />
         </androidx.viewpager.widget.ViewPager>
 
         <androidx.constraintlayout.widget.ConstraintLayout
