@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Godaehada</string>
+
+    <!-- activity_chat -->
+    <string name="chat_name">김라희</string>
+    <string name="chat_ed_message">메시지를 입력하세요</string>
 </resources>
