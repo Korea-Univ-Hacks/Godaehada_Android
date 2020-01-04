@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="김윤진"
-        android:textSize="13sp"
+        android:textSize="16sp"
         android:textColor="#de000000"
         android:textStyle="bold"
         />
@@ -37,7 +37,7 @@
         android:id="@+id/main_tag_txt"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:textSize="12sp"
+        android:textSize="15sp"
         android:textColor="#8a682dfc"
         android:letterSpacing="-0.04"
         android:text="#로고디자인"
