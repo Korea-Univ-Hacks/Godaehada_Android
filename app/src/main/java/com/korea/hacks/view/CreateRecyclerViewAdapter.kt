@@ -66,9 +66,9 @@ class CreateRecyclerViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder
                     TAG += "#" + t+" "
                 }
 
-
                 main_name_txt.text = name
                 main_tag_txt.text = TAG
+                main_portfolio_img.setImageResource(R.drawable.group1)
 
                 //TODO 각 아이템 뷰 클릭하면 상세화면 이동
                 setOnClickListener {

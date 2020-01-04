@@ -25,8 +25,6 @@ data class Test(
     var name:String,
     var tag: MutableList<String>
 )
-
-
 class MainActivity : BaseActivity<ActivityMainBinding>(),
     NavigationView.OnNavigationItemSelectedListener {
     //class MainActivity : BaseActivity<ActivityMainBinding>(), CallEvent{
@@ -174,14 +172,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
 //        }
     }
 
-    /**
-     * 특정 크리에이터 클릭 시, 포트폴리오보기 화면으로 넘어감
-     * TODO **************************************
-     */
-
-    /**
-     * 데일리 다이어리 리스트에서 특정 다이어리를 클릭하면 상세보기 화면으로 이동
-     */
 
     private fun buttonInit() {
         binding.txt1.isSelected = false
@@ -199,8 +189,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
         }
     }
 
+    /**
+     * 특정 크리에이터 클릭 시, 포트폴리오보기 화면으로 넘어감
+     * TODO **************************************
+     */
 //    override fun onClickImage(test: Test) {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//        TODO("not implemented") //특정 크리에이터 클릭 시 포트폴리오 보여줌
 //        //        val intent = Intent(this, DetailActivity::class.java)
 ////        intent.putExtra("diary", diary)
 ////        intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
