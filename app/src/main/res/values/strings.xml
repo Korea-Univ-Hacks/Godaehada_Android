@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Godaehada</string>
+
+    <!-- activity_main -->
+    <strinsg name="main_tab_home">홈</strinsg>
+    <string name="main_tab_design">디자인</string>
+    <string name="main_tab_it">IT</string>
+    <string name="main_tab_contents">콘텐츠 제작</string>
+    <string name="main_tab_document">문서</string>
 </resources>
