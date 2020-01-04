@@ -7,20 +7,24 @@
 
     <data>
         <variable
-            name="portfolioItem"
+            name="vm"
+            type="com.korea.hacks.view.portfolio.PortfolioViewModel" />
+        <variable
+            name="item"
             type="com.korea.hacks.view.portfolio.entity.PortfolioItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_portfolio_image">
+        android:background="@drawable/bg_portfolio_image"
+        android:onClick="@{() -> vm.onPortfolioItemClick(item)}">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:set_image_url="@{portfolioItem.imageUrl}"
+            app:set_image_url="@{item.imageUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

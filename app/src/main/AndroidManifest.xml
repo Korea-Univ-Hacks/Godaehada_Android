@@ -26,6 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.portfolio.PortfolioActivity" />
+        <activity android:name=".view.contact.ContactActivity" />
     </application>
 
 </manifest>
