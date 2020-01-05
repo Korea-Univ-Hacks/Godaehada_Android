@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+<ImageView
+    android:layout_width="160dp"
+    android:layout_height="108dp"
+    android:adjustViewBounds="true"
+    android:scaleType="centerInside"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:id="@+id/main_portfolio_img"
+    />
+
+    <TextView
+        android:id="@+id/main_name_txt"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/main_portfolio_img"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="김윤진"
+        android:textSize="16sp"
+        android:textColor="#de000000"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/main_tag_txt"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="#8a682dfc"
+        android:letterSpacing="-0.04"
+        android:text="#로고디자인"
+        android:textStyle="bold"
+        android:maxLines="2"
+        android:minLines="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_name_txt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

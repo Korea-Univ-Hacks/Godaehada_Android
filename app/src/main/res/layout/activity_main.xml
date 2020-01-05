@@ -1,13 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
+<layout>
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".view.main.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity"
+    android:id="@+id/drawer_layout1"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
+    <!--main layout-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <include
+            android:id="@+id/main_toolbar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:id="@+id/category_view"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            app:layout_constraintTop_toBottomOf="@id/main_toolbar"
+            />
+
+        <Button
+            android:id="@+id/txt1"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:text="홈"
+            android:textColor="@color/change"
+            android:background="@drawable/background_change"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/txt2"
+            app:layout_constraintTop_toTopOf="@id/category_view"
+            app:layout_constraintBottom_toBottomOf="@id/category_view"
+            />
+        <Button
+            android:id="@+id/txt2"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:text="디자인"
+            android:textColor="@color/change"
+            android:background="@drawable/background_change"
+            app:layout_constraintStart_toEndOf="@id/txt1"
+            app:layout_constraintEnd_toStartOf="@id/txt3"
+            app:layout_constraintTop_toTopOf="@id/category_view"
+            app:layout_constraintBottom_toBottomOf="@id/category_view"
+            />
+
+        <Button
+            android:id="@+id/txt3"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:text="IT"
+            android:textColor="@color/change"
+            android:background="@drawable/background_change"
+            app:layout_constraintStart_toEndOf="@id/txt2"
+            app:layout_constraintEnd_toStartOf="@id/txt4"
+            app:layout_constraintTop_toTopOf="@id/category_view"
+            app:layout_constraintBottom_toBottomOf="@id/category_view"
+            />
+        <Button
+            android:id="@+id/txt4"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:text="콘텐츠"
+            android:textColor="@color/change"
+            android:background="@drawable/background_change"
+            app:layout_constraintStart_toEndOf="@id/txt3"
+            app:layout_constraintEnd_toStartOf="@id/txt5"
+            app:layout_constraintTop_toTopOf="@id/category_view"
+            app:layout_constraintBottom_toBottomOf="@id/category_view"
+            />
+        <Button
+            android:id="@+id/txt5"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:text="번역"
+            android:textColor="@color/change"
+            android:background="@drawable/background_change"
+            app:layout_constraintStart_toEndOf="@id/txt4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/category_view"
+            app:layout_constraintBottom_toBottomOf="@id/category_view"
+            />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/guide_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="183dp"
+            android:src="@drawable/card_2"
+            app:layout_constraintTop_toBottomOf="@+id/category_view"/>
+
+        <EditText
+            android:id="@+id/search_edit"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/guide_view_pager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="15dp"
+            android:background="@null"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            />
+
+        <ImageView
+            android:id="@+id/search_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/search_edit"
+            app:layout_constraintTop_toTopOf="@id/search_edit"
+            app:layout_constraintStart_toEndOf="@+id/search_edit"
+            android:src="@drawable/search_copy"
+
+            />
+        <ImageView
+            android:id="@+id/bar_img"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/invalid_name"
+            app:layout_constraintTop_toBottomOf="@id/search_img"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/title_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="#de000000"
+            android:text="지금 가장 HOT한 작가는?"
+            app:layout_constraintTop_toBottomOf="@id/bar_img"
+            app:layout_constraintStart_toStartOf="parent"
+              android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+
+            />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/creator_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/title_txt"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="10dp"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:menu="@menu/drawerlayout"
+        android:clickable="true"
+        app:headerLayout="@layout/navigation_header"
+        />
+
+</androidx.drawerlayout.widget.DrawerLayout>
 </layout>
