@@ -18,11 +18,11 @@ class CreateRecyclerViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder
 
     private var creatorList = ArrayList<Test>()
 
-//    private lateinit var callEvent: CallEvent
-//
-//    constructor(callEvent: CallEvent):this(){
-//        this.callEvent = callEvent
-//    }
+    private lateinit var callEvent: CallEvent
+
+    constructor(callEvent: CallEvent):this(){
+        this.callEvent = callEvent
+    }
 
     fun setItems(creatorList: ArrayList<Test>) {
         this.creatorList = creatorList
@@ -72,7 +72,7 @@ class CreateRecyclerViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder
 
                 //TODO 각 아이템 뷰 클릭하면 상세화면 이동
                 setOnClickListener {
-                   // callEvent.onClickImage(creator)
+                    callEvent.onClickImage(false)
                 }
 
 
