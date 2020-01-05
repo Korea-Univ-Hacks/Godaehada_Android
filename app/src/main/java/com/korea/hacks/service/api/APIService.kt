@@ -9,4 +9,7 @@ interface APIService {
 
     @GET("api/user/list")
     fun getUserList(): Single<Response<MutableList<User>>>
+
+    @GET("api/user/profile")
+    fun getUserProfile()
 }

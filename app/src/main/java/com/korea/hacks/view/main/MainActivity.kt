@@ -20,12 +20,13 @@ import com.korea.hacks.databinding.ActivityMainBinding
 import com.korea.hacks.model.response.User
 import com.korea.hacks.util.ImageUtil
 import com.korea.hacks.view.CreateRecyclerViewAdapter
+import com.korea.hacks.view.portfolio.PortfolioActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.navigation_header.view.*
 import kotlinx.android.synthetic.main.toolbar.view.*
 
 class MainActivity : BaseActivity<ActivityMainBinding>(),
-    NavigationView.OnNavigationItemSelectedListener {
+    NavigationView.OnNavigationItemSelectedListener, CallEvent {
     //class MainActivity : BaseActivity<ActivityMainBinding>(), CallEvent{
 
     private val FINISH_INTERVAL_TIME: Long = 2000
@@ -42,8 +43,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
 
 
     //그리드 - 리사이클러뷰 어댑터
-    private val createRecyclerViewAdapter by lazy { CreateRecyclerViewAdapter() }
-  //  private val createRecyclerViewAdapter by lazy { CreateRecyclerViewAdapter(this) }
+//    private val createRecyclerViewAdapter by lazy { CreateRecyclerViewAdapter() }
+    private val createRecyclerViewAdapter by lazy { CreateRecyclerViewAdapter(this) }
 
     //TODO 검색 결과 리스트 셋팅
     private var creatorList = ArrayList<User>()
@@ -195,16 +196,16 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
      * 특정 크리에이터 클릭 시, 포트폴리오보기 화면으로 넘어감
      * TODO **************************************
      */
-//    override fun onClickImage(test: Test) {
-//        TODO("not implemented") //특정 크리에이터 클릭 시 포트폴리오 보여줌
-//        //        val intent = Intent(this, DetailActivity::class.java)
-////        intent.putExtra("diary", diary)
-////        intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
-////
-////        startActivity(intent)
-//    }
+    override fun onClickImage(isBuyer: Boolean) {
+        goToPortfolioActivity(isBuyer)
+    }
 
-
+    private fun goToPortfolioActivity(isBuyer: Boolean) {
+        val intent = Intent(this, PortfolioActivity::class.java)
+        intent.putExtra(PortfolioActivity.EXTRA_IS_BUYER, isBuyer)
+        intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
+        startActivity(intent)
+    }
 
     override fun onBackPressed() {
         val tempTime = System.currentTimeMillis()
@@ -227,10 +228,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
         when(item.itemId){
             R.id.menuitem1->{
                 //TODO 나의 포트폴리오 화면 띄우기!!
-//          val intent = Intent(this, DetailActivity::class.java)
-////        intent.putExtra("diary", diary)
-////        startActivity(intent)
-               Toast.makeText(this, "나의 포트폴리오 화면 ", Toast.LENGTH_SHORT).show()
+                goToPortfolioActivity(true)
+                Toast.makeText(this, "나의 포트폴리오 화면 ", Toast.LENGTH_SHORT).show()
             }
             R.id.menuitem2->Toast.makeText(this, "공지사항", Toast.LENGTH_SHORT).show()
 
