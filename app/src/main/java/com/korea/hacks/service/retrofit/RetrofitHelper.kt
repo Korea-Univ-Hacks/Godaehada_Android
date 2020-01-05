@@ -1,5 +1,6 @@
 package com.korea.hacks.service.retrofit
 
+import com.korea.hacks.service.api.APIConst
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
@@ -30,8 +31,7 @@ object RetrofitHelper {
         }.build()
 
         retrofit = Retrofit.Builder().apply {
-            // TODO
-            baseUrl("")
+            baseUrl(APIConst.URL)
             client(okHttpClient)
             addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             addConverterFactory(GsonConverterFactory.create())

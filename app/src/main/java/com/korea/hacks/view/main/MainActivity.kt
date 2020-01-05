@@ -9,6 +9,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.navigation.NavigationView
 import com.korea.hacks.CallEvent
@@ -16,6 +17,7 @@ import com.korea.hacks.GuideViewPagerAdapter
 import com.korea.hacks.R
 import com.korea.hacks.base.BaseActivity
 import com.korea.hacks.databinding.ActivityMainBinding
+import com.korea.hacks.util.ImageUtil
 import com.korea.hacks.view.CreateRecyclerViewAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.navigation_header.view.*
@@ -33,6 +35,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
     private var backPressedTime: Long = 0
 
     override val layoutRes = R.layout.activity_main
+    private val mainViewModel = MainViewModel()
 
     var selectedCategory = "홈"  //카테고리
     private var searchWord = ""   //검색어
@@ -141,6 +144,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
             selectedCategory = "번역"
             onClickSearchBtn()
         }
+
+        mainViewModel.getUserList()
+
+//        mainViewModel.userListLiveData.observe(this, Observer {
+//            ImageUtil.setImageUrl(it[0].portfolioList[0].imageUrl)
+//        })
     }
 
 
