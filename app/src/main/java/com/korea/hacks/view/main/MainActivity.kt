@@ -17,16 +17,13 @@ import com.korea.hacks.GuideViewPagerAdapter
 import com.korea.hacks.R
 import com.korea.hacks.base.BaseActivity
 import com.korea.hacks.databinding.ActivityMainBinding
+import com.korea.hacks.model.response.User
 import com.korea.hacks.util.ImageUtil
 import com.korea.hacks.view.CreateRecyclerViewAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.navigation_header.view.*
 import kotlinx.android.synthetic.main.toolbar.view.*
 
-data class Test(
-    var name:String,
-    var tag: MutableList<String>
-)
 class MainActivity : BaseActivity<ActivityMainBinding>(),
     NavigationView.OnNavigationItemSelectedListener {
     //class MainActivity : BaseActivity<ActivityMainBinding>(), CallEvent{
@@ -49,17 +46,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
   //  private val createRecyclerViewAdapter by lazy { CreateRecyclerViewAdapter(this) }
 
     //TODO 검색 결과 리스트 셋팅
-    private var creatorList = ArrayList<Test>()
+    private var creatorList = ArrayList<User>()
 
     fun test() {
+//        creatorList.add(Test(name, tag))
+//        creatorList.add(Test(name, tag))
+//        creatorList.add(Test(name, tag))
+//        creatorList.add(Test(name, tag))
 
-        val tag = ArrayList<String>(listOf("로고디자인", "BX디자인"))
-        val name = "김라희"
-
-        creatorList.add(Test(name, tag))
-        creatorList.add(Test(name, tag))
-        creatorList.add(Test(name, tag))
-        creatorList.add(Test(name, tag))
     }
 
     override fun setupView(){
@@ -77,7 +71,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
             layoutManager = gridLayoutManager
             setHasFixedSize(true)
         }
-        createRecyclerViewAdapter.setItems(creatorList)
+
+        mainViewModel.getUserList()
+
+        mainViewModel.userListLiveData.observe(this, Observer {
+
+            createRecyclerViewAdapter.setItems(it)
+            //ImageUtil.setImageUrl(it[0].portfolioList[0].imageUrl)
+        })
 
         //뷰페이저에 뷰페이저 어댑터 지정
         guide_view_pager.adapter = guideViewPagerAdapter
@@ -89,7 +90,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
             binding.drawerLayout1.openDrawer(GravityCompat.START)
         }
         binding.navView.setNavigationItemSelectedListener(this)
-
 
 
     //TODO 메뉴 이름, 사진, 입력..
@@ -145,15 +145,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
             onClickSearchBtn()
         }
 
-        mainViewModel.getUserList()
 
-//        mainViewModel.userListLiveData.observe(this, Observer {
-//            ImageUtil.setImageUrl(it[0].portfolioList[0].imageUrl)
-//        })
     }
-
-
-
 
     /**
      * 검색 버튼 또는 카테고리 선택시 실행!!

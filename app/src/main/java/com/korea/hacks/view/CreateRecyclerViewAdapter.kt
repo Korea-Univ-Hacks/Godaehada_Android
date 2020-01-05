@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.korea.hacks.CallEvent
 import com.korea.hacks.R
-import com.korea.hacks.view.main.Test
+import com.korea.hacks.model.response.User
+import com.korea.hacks.util.ImageUtil
 import kotlinx.android.synthetic.main.creator_item_view.view.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -16,7 +17,7 @@ import kotlin.collections.ArrayList
 
 class CreateRecyclerViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var creatorList = ArrayList<Test>()
+    private var creatorList = ArrayList<User>()
 
 //    private lateinit var callEvent: CallEvent
 //
@@ -24,8 +25,8 @@ class CreateRecyclerViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder
 //        this.callEvent = callEvent
 //    }
 
-    fun setItems(creatorList: ArrayList<Test>) {
-        this.creatorList = creatorList
+    fun setItems(creatorList: MutableList<User>) {
+        this.creatorList = creatorList as ArrayList<User>
         notifyDataSetChanged()
     }
 
@@ -52,23 +53,29 @@ class CreateRecyclerViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder
     inner class CreateViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         @SuppressLint("SimpleDateFormat")
-        fun onBind(creatorList: ArrayList<Test>, position: Int) {
-            var creator:Test = creatorList[position]
+        fun onBind(creatorList: ArrayList<User>, position: Int) {
+            var creator:User = creatorList[position]
 
             itemView.run {
 
-                val name = creatorList[position].name
+                val name = creatorList[position].nickname
 
-                val tag = creatorList[position].tag
+                val portfolioList = creatorList[position].portfolioList
 
                 var TAG=""
-                for(t in tag){
-                    TAG += "#" + t+" "
+                for(port in portfolioList){
+                    TAG += "#" + port.ios+" "
+                    ImageUtil.setImageUrl(main_portfolio_img, port.imageUrl)
                 }
+
+               // ImageUtil.setImageUrl(it[0].portfolioList[0].imageUrl)
+
 
                 main_name_txt.text = name
                 main_tag_txt.text = TAG
-                main_portfolio_img.setImageResource(R.drawable.group1)
+              //  main_portfolio_img.setImageResource(R.drawable.group1)
+
+
 
                 //TODO 각 아이템 뷰 클릭하면 상세화면 이동
                 setOnClickListener {
